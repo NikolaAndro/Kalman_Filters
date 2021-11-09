@@ -232,7 +232,7 @@ first_time = True
 for i in range(35):
 
     print("ITERATION NUMBER: ",i+1)
-    # Measure ( x and y value) Z = H * x + U
+    # Measure ( x and y value) Z = H * x + U using the jetbot camera script
     z = np.zeros((2,1))
     
     z[0][0] = x_m[i]
