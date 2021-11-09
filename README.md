@@ -13,7 +13,7 @@ Different examples for applying Kalman Filers using Python.
 
   The discrete noise model assumes that the noise is different at each time period, but it is constant between time periods.
   
- ![discrete noise](../images/discrete_noise_model.png)
+ ![discrete noise](./images/discrete_noise.png)
  
  
   
