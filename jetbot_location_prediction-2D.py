@@ -7,9 +7,50 @@
 #***************************************************
 #
 #
-# DESCRIPTION: Using Kalmat filtering technique to predict the future position of the Jetbot on the XY plane / image. 
-#
-#
+'''Using Kalmat filtering technique to predict the future position of the Jetbot on the XY plane / image. 
+               State Exploration Equation:
+                        x_t_plus_1 = F * x_t + G * U_t +  w_t    where  x_t_plus_1 is the predicted system state vector at the time step t+1
+                                                                        x_t is an estimated system state vector at the time step t
+                                                                        U_t is the input control vector
+                                                                        w_t is the process noise vector
+                                                                        F is the state transition matrix that enables us to conver the previous state into a new estimated state
+                                                                        G is the control transition matrix that enables input vecor to be in the form/shape that can influence the future state X_t_plus_1
+                In our case, we do not have any input (wind, uneven terain, or anything like that), and for thet sake of the simplicity, we will not consider the noise w_t. 
+                Hence, the state exploration equation boils down to:
+                        x_t_plus_1 = F * x_t
+
+                The system state is defined as a vector:
+                    x = [[x_position],
+                        [x_velocity],
+                        [x_acceleration],
+                        [y_position],
+                        [y_velocity],
+                        [y_acceleration]]
+
+                The extrapolated jetbot state for time t+1 can be described by the following system of equations:
+                x_position_t_plus_1 = x_position_t + x_velocity_t * delta_t + 0.5 * x_acceleration_t * delta_t**2
+                x_velocity_t_plus_1 = x_velocity_t + x_acceleration_t * delta_t
+                x_acceleration_t_plus_1 = x_acceleration_t
+                y_position_t_plus_1 = y_position_t + y_velocity_t * delta_t + 0.5 * y_acceleration_t * delta_t**2
+                y_velocity_t_plus_1 = y_velocity_t + y_acceleration_t * delta_t
+                y_acceleration_t_plus_1 = y_acceleration_t
+
+                where delta_t represents the change in time. In our case, the time between video frames. 
+
+                This can be represented in the matrix form as follows:
+                [x_position_t_plus_1    ]   [1, delta_t, 0.5*delta_t**2, 0,    0   ,       0       ]   [x_position_t    ]
+                [x_velocity_t_plus_1    ]   [0,    1   ,    delta_t    , 0,    0   ,       0       ]   [x_velocity_t    ]
+                [x_acceleration_t_plus_1] = [0, delta_t,       1       , 0,    0   ,       0       ] * [x_acceleration_t]
+                [y_position_t_plus_1    ]   [0,    0   ,       0       , 1, delta_t, 0.5*delta_t**2]   [y_position_t    ]
+                [y_velocity_t_plus_1    ]   [0,    0   ,       0       , 0,    1   ,    delta_t    ]   [y_velocity_t    ]
+                [y_acceleration_t_plus_1]   [0,    0   ,       0       , 0, delta_t,       1       ]   [y_acceleration_t]
+
+            The covariance extrapolation equation:
+                P_t_plus_1 = F * P_t * F.T + Q  where   P_t is the estimate uncertainty (covariance) matrix of the current state
+                                                        P_t_plus_1 is the predicted estimate uncertainty (covariance) matrix for the next sate
+                                                        F is the state transition matrix
+                                                        Q is the process noise matrix
+'''
 
 from math import *
 import matplotlib.pyplot as plt
