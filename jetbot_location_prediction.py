@@ -7,7 +7,7 @@
 #***************************************************
 #
 #
-# DESCRIPTION: Using Kalmat filtering technique to predict the future position of the Jetbot. 
+# DESCRIPTION: Using Kalmat filtering technique to predict the future position of the Jetbot on the XY plane / image. 
 #
 #
 
@@ -22,13 +22,13 @@ import matplotlib.pyplot as plt
 # We don't know the vehicle location; we will set initial position, velocity and acceleration to 0.
 #x_init = [[0 for x in range(6)] for x in range(1)]
 x_init = np.zeros((6, 1))
+
 print("Initial State Matrix:")
 print(x_init, end="\n\n")
 
 # State Covariance Matrix (Error in the estimate)
 # Since our initial state vector is a guess, we will set a very high estimate uncertainty. The high estimate uncertainty results in a high Kalman Gain, giving a high weight to the measurement.
 # This will be a 6 x 6 matrix of  
-#P_init = [[0 for x in range(6)] for x in range(6)]
 P_init = np.zeros((6, 6))
 
 # Change the values on the diagonal of the State Covariance Matrix
@@ -48,7 +48,6 @@ FPS = 12.4
 delta_t = 1  # just for the test purposes -- will change with real data for jetbot
 
 # Create the F matrix that represents the state transition matrix.
-F = [[0 for x in range(6)] for x in range(6)]
 F = np.zeros((6, 6))
 for i in range(6):
     F[i][i] = 1
@@ -119,7 +118,7 @@ for xi in H:
     print("{:.4f}   {:.4f}   {:.4f}   {:.4f}   {:.4f}   {:.4f}".format(xi[0],xi[1],xi[2],xi[3],xi[4],xi[5]))
 print("\n\n")
 
-#
+
 
 # Define R. For that we need the standard deviation of x and y.
 # for testing purposes we will let x and y error be 3 meters
@@ -144,11 +143,11 @@ y_predict = []
 
 first_time = True
 
-#Start iterations (25 for now):
+#Start iterations (35 for now):
 for i in range(35):
 
-    print("ITERATION NUMBER: ",i)
-    # Measure ( x and y value) Z = [x,y]*H
+    print("ITERATION NUMBER: ",i+1)
+    # Measure ( x and y value) Z = x*H
     z = np.zeros((2,1))
     z[0][0] = x_m[i]
     z[1][0] = y_m[i]
@@ -192,7 +191,7 @@ for i in range(35):
     #store those values
     print(x_future)
     x_predict.append(x_future[0][0])
-    y_predict.append(x_future[1][0])
+    y_predict.append(x_future[3][0])
 
     P_new_error = np.dot(np.dot(F,P),F.T) + Q #results in a 6 x 6 matrix
     print("P_new:")
