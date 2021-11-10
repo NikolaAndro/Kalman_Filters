@@ -34,6 +34,7 @@ The advantage of Kalman's Filter over [Wiener's Filter](https://en.wikipedia.org
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 ![Kalman_Filtering](./images/Kalman_jetbot_prediction_0.png)
   
+Since this is not the Extended Kalman Filter, we can see that there is a deviation whenever the jetbot makes a turn. However, we can see that as  the jetbot keeps moving straight, the error between estimate and actual position is decreasing. 
 
  <!-- 
  ### DISCRETE NOISE MODEL
