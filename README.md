@@ -23,6 +23,8 @@ The advantage of Kalman's Filter over [Wiener's Filter](https://en.wikipedia.org
 
 # Jetbot Location Prediction - Constant Velocity Model
 
+  (Code is stored in jetbot_Kalman folder)
+  
   In this example, we will present 2D Kalman Filter while trying to predict the next position of a Jetbot on a test-pad (imitation of a road) using a camera for jetbot detection and getting the x and y measurements. Those measurements are imported into Kalman Filter and the predidction is being made.  
 
   There are many different motion models that can be bubilt for Kalman Filtering such as Constant Velocity (CV), Constant Acceleration (CA), Constant Turn (CT), Random Walk (RW) and many others. In this case we will use the constant velocity since the Jetbot is moving with a constant velocity. 
