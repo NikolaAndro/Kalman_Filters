@@ -7,7 +7,7 @@
 #***************************************************
 #
 #
-'''Using Kalmat filtering technique to predict the future position of the Jetbot on the XY plane / image. 
+'''Using Kalman filtering technique to predict the future position of the Jetbot on the XY plane / image. 
                State Exploration Equation:
                         x_t = F * x_t_minus_1 + G * U_t_minus_1 +  w_t_minus_1  where   x_t is the predicted system state vector at the time step t+1
                                                                                         x_t_minus_1 is an estimated system state vector at the time step t
