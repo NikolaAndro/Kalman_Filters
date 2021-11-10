@@ -11,7 +11,7 @@ The process of estimating X_t is called **filtering or smoothing.**
 
 The advantage of Kalman's Filter over [Wiener's Filter](https://en.wikipedia.org/wiki/Wiener_filter) is that the Kalman's Filter does not use all the previous states in order to predict the future state. It only uses the information of the previous state. This recursive solution is therefore much less computationally expensive.
 
-[My Notes on Kalman Filter]()
+[My Notes on Kalman Filter](https://nikolaandro.github.io/kalman-filter/)
 
 # Robot Position Prediction (Basics)
 
