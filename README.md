@@ -36,6 +36,7 @@ The advantage of Kalman's Filter over [Wiener's Filter](https://en.wikipedia.org
   
 Since this is not the Extended Kalman Filter, we can see that there is a deviation whenever the jetbot makes a turn. However, we can see that as  the jetbot keeps moving straight, the error between estimate and actual position is decreasing. 
 
+Note: the x axis is inversed because I wanted graph to go from left to right. Camera is, on the other hand, seeing the car from right to left.
  <!-- 
  ### DISCRETE NOISE MODEL
  
