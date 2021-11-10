@@ -11,15 +11,19 @@ The process of estimating X_t is called **filtering or smoothing.**
 
 The advantage of Kalman's Filter over [Wiener's Filter](https://en.wikipedia.org/wiki/Wiener_filter) is that the Kalman's Filter does not use all the previous states in order to predict the future state. It only uses the information of the previous state. This recursive solution is therefore much less computationally expensive.
 
-
+[My Notes on Kalman Filter]()
 
 # Robot Position Prediction (Basics)
 
   In this one dimensional example we are using Kalman Filer approach to predict the next position of the moving robot.
 
-# Jetbot Location
+# Car Location Prediction 2D - Constant Acceleration Model
 
-  In this example, we will present 2D Kalman Filter while trying to predict the next position of a Jetbot on a test-pad (imitation of a road). 
+  In this example we are predicting the position of a caar that has a constant acceleration. We have fixed lists of x and y measurements of the car in the 2D space. The rest of the equations are being derived. Finally, we plot the graph to see how the predictions become more acurate over time. 
+
+# Jetbot Location Prediction - Constant Velocity Model
+
+  In this example, we will present 2D Kalman Filter while trying to predict the next position of a Jetbot on a test-pad (imitation of a road) using a camera for jetbot detection and getting the x and y measurements. Those measurements are imported into Kalman Filter and the predidction is being made.  
 
   There are many different motion models that can be bubilt for Kalman Filtering such as Constant Velocity (CV), Constant Acceleration (CA), Constant Turn (CT), Random Walk (RW) and many others. In this case we will use the constant velocity since the Jetbot is moving with a constant velocity. 
   
