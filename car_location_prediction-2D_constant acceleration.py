@@ -7,7 +7,7 @@
 #***************************************************
 #
 #
-'''Using Kalmat filtering technique to predict the future position of the Jetbot on the XY plane / image. 
+'''Using Kalmat filtering technique to predict the future position of the car on the XY plane / image. 
                State Exploration Equation:
                         x_t_plus_1 = F * x_t + G * U_t +  w_t    where  x_t_plus_1 is the predicted system state vector at the time step t+1
                                                                         x_t is an estimated system state vector at the time step t
@@ -27,7 +27,7 @@
                         [y_velocity],
                         [y_acceleration]]
 
-                The extrapolated jetbot state for time t+1 can be described by the following system of equations:
+                The extrapolated car state for time t+1 can be described by the following system of equations:
                 x_position_t_plus_1 = x_position_t + x_velocity_t * delta_t + 0.5 * x_acceleration_t * delta_t**2
                 x_velocity_t_plus_1 = x_velocity_t + x_acceleration_t * delta_t
                 x_acceleration_t_plus_1 = x_acceleration_t
@@ -81,12 +81,8 @@ for xi in P_init:
     print(xi)
 print("\n\n")
 
-# delta_t represents the time difference between the frames (time between taking the images via camera).
-# This time is gotten by the equation 1/FPS, where FPS stands for frames per second and has value of 12.4 on the cameras we use. 
-
-FPS = 12.4
-#delta_t = 1 / FPS
-delta_t = 1  # just for the test purposes -- will change with real data for jetbot
+# Difference in time between the measurements
+delta_t = 1 
 
 # Create the F matrix that represents the state transition matrix.
 F = np.zeros((6, 6))
