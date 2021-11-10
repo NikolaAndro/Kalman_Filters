@@ -29,6 +29,10 @@ The advantage of Kalman's Filter over [Wiener's Filter](https://en.wikipedia.org
 
   There are many different motion models that can be bubilt for Kalman Filtering such as Constant Velocity (CV), Constant Acceleration (CA), Constant Turn (CT), Random Walk (RW) and many others. In this case we will use the constant velocity since the Jetbot is moving with a constant velocity. 
   
+ The results of this project can be seen on the following graph:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+![Kalman_Filtering](./images/Kalman_jetbot_prediction_0.png)
   
 
  <!-- 
