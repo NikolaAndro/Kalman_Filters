@@ -8,6 +8,7 @@
 #
 #
 '''Using Kalmat filtering technique to predict the future position of the car on the XY plane / image. 
+
                State Exploration Equation:
                         x_t_plus_1 = F * x_t + G * U_t +  w_t    where  x_t_plus_1 is the predicted system state vector at the time step t+1
                                                                         x_t is an estimated system state vector at the time step t
