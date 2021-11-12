@@ -6,13 +6,12 @@
 
 [Kalman Filter and Extended Kalman Filter](https://www.ece.iastate.edu/~namrata/EE527_Spring08/KalmanFilter.pdf)
 
-[x
-Extended Kalman Filter Lecture No](https://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/kalman/ekf_lecture_notes.pdf)
+[Extended Kalman Filter Lecture No](https://www.cs.cmu.edu/~motionplanning/papers/sbp_papers/kalman/ekf_lecture_notes.pdf)
 
 [Extended Kalman Filter](https://www.sciencedirect.com/topics/computer-science/extended-kalman-filter)
 
 
-#Git repositories
+# Git repositories
 
 [Extended Kalman filter project self driving car ND](https://github.com/younis1431996/Extended_Kalman_Filter_project_self_driving_car_ND)
 
